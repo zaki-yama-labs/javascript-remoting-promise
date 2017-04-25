@@ -41,10 +41,12 @@ gulp.task('webpack', function() {
 
 gulp.task('deploy', function() {
   var ts = Date.now();  // Timestamp
+  var namespace = process.env.NAMESPACE ? `${process.env.NAMESPACE}.` : '';
   return gulp.src('pkg/**/*', {
     base: '.'
   })
   .pipe(gulpif('**/*.cmp', replace(/__NOCACHE__/g, ts)))
+  .pipe(gulpif('**/*.page', replace(/__NAMESPACE__/g, namespace)))
   .pipe(zip('pkg.zip'))
   .pipe(forceDeploy({
     username: process.env.SF_USERNAME,
