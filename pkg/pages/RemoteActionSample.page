@@ -1,4 +1,4 @@
-<apex:page showHeader="false" standardStyleSheets="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:page showHeader="false" standardStyleSheets="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false" controller="RemoteActionController">
 <html>
   <head>
     <meta charset="utf-8" />
@@ -9,7 +9,7 @@
 
     <apex:includeScript value="{!URLFOR($Resource.app, 'bundle.js')}" />
     <script type="text/javascript">
-      App.init(document.getElementById('root'), '{!URLFOR($Asset.SLDS)}/assets');
+      App.init(document.getElementById('root'), __NAMESPACE__RemoteActionController, '{!URLFOR($Asset.SLDS)}/assets');
     </script>
   </body>
 </html>
