@@ -1,0 +1,16 @@
+<apex:page showHeader="false" standardStyleSheets="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <apex:slds />
+  </head>
+  <body class="slds-scope">
+    <div id="root"></div>
+
+    <apex:includeScript value="{!URLFOR($Resource.app, 'bundle.js')}" />
+    <script type="text/javascript">
+      App.init(document.getElementById('root'), '{!URLFOR($Asset.SLDS)}/assets');
+    </script>
+  </body>
+</html>
+</apex:page>
