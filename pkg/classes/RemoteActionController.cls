@@ -1,7 +1,7 @@
 public class RemoteActionController {
 
 	@RemoteAction
-	public static String greeting() {
+	public static String sayHello() {
 		return 'Hello, World';
 	}
 }

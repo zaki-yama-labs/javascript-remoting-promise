@@ -1,12 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
 import { util } from 'react-lightning-design-system';
 
-import App from './components/App';
+import App from './containers/App';
 import '../stylesheets/index.scss';
 
-export const init = function(el, controller, assetRoot) {
+const store = configureStore();
+
+export const init = function(el, assetRoot) {
   util.setAssetRoot(assetRoot);
-  console.log('Set asset root as ', util.getAssetRoot());
-  render(<App controller={controller} />, el);
+  console.log('Set asset root as', util.getAssetRoot());
+
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root'),
+  );
 };
