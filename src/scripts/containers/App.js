@@ -4,6 +4,12 @@ import App from '../components/App';
 
 import { sayHello } from '../actions';
 
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading,
+  };
+};
+
 const mapDispatchProps = (dispatch) => {
   return {
     onClick: () => {
@@ -13,4 +19,4 @@ const mapDispatchProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchProps)(App);
+export default connect(mapStateToProps, mapDispatchProps)(App);

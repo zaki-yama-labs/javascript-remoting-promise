@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, DateInput, util } from 'react-lightning-design-system';
+import { Button, Form, Input, DateInput, Spinner, util } from 'react-lightning-design-system';
 
 export default class App extends React.Component {
   // onClick(e) {
@@ -18,6 +18,7 @@ export default class App extends React.Component {
           <DateInput label="DateInput #1" defaultValue="2015-12-24" required />
           <Button type="brand" onClick={this.props.onClick}>Submit</Button>
         </Form>
+        {this.props.loading ? <Spinner type="brand" container size="large" /> : null}
       </div>
     );
   }
