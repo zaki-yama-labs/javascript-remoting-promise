@@ -19,7 +19,20 @@ export function sayHello() {
   return (getState, dispatch) => {
     console.log('hi');
     dispatch(loadingStart());
-    new Remoting().sayHello((result) => {
+    new Remoting().sayHelloPromise()
+      .then((result) => {
+        alert(result);
+        console.log(result);
+        // dispatch(loadingEnd());
+      });
+  };
+}
+
+export function sayHelloCallback() {
+  return (getState, dispatch) => {
+    console.log('hi');
+    dispatch(loadingStart());
+    new Remoting().sayHelloCallback((result) => {
       alert(result);
       dispatch(loadingEnd());
     });

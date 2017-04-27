@@ -15,7 +15,19 @@ export default class SfRemoting {
     return zakiyama.RemoteActionController;
   }
 
-  sayHello(callback) {
+  createRemoting() {
+    return {
+      execute: (funcName) => {
+        return new Promise((resolve, reject) => {
+          this.getRemoting()[funcName]((result, event) => {
+            resolve(result);
+          });
+        });
+      },
+    };
+  }
+
+  sayHelloCallback(callback) {
     this.getRemoting().sayHello((result, event) => {
       console.log('result:', result);
       console.log('event:', event);
@@ -23,4 +35,7 @@ export default class SfRemoting {
     });
   }
 
+  sayHelloPromise() {
+    return this.createRemoting().execute('sayHello');
+  }
 }
