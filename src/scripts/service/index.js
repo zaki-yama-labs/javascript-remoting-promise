@@ -17,9 +17,9 @@ export default class SfRemoting {
 
   createRemoting() {
     return {
-      execute: (funcName) => {
+      execute: (funcName, ...args) => {
         return new Promise((resolve, reject) => {
-          this.getRemoting()[funcName]((result, event) => {
+          this.getRemoting()[funcName](...args, (result, event) => {
             resolve(result);
           });
         });
