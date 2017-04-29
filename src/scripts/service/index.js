@@ -23,6 +23,7 @@ export default class SfRemoting {
             if (event.status) {
               resolve(result);
             } else {
+              console.log('Remote Action error occured:', event);
               reject({ message: event.message, where: event.where });
             }
           });

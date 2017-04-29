@@ -20,12 +20,10 @@ function loadingEnd() {
 
 export function sayHello() {
   return (dispatch, getState) => {
-    console.log('hi');
     dispatch(loadingStart());
     new Remoting().sayHelloPromise()
       .then((result) => {
         alert(result);
-        console.log(result);
         dispatch(loadingEnd());
       })
   };
@@ -43,7 +41,7 @@ export function sayHelloError() {
     dispatch(loadingStart());
     new Remoting().sayHelloError()
       .then((result) => {
-        console.log(result);
+        alert(result);
         dispatch(loadingEnd());
       })
       .catch((err) => {
@@ -62,7 +60,6 @@ export function clearErrorMessage() {
 
 export function sayHelloCallback() {
   return (dispatch, getState) => {
-    console.log('hi');
     dispatch(loadingStart());
     new Remoting().sayHelloCallback((result) => {
       alert(result);

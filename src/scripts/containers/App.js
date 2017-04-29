@@ -14,7 +14,6 @@ const mapStateToProps = (state) => {
 const mapDispatchProps = (dispatch) => {
   return {
     onClick: () => {
-      console.log('dispatch');
       dispatch(sayHello());
     },
     onClickError: () => {
