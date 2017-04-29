@@ -4,13 +4,13 @@ public class RemoteActionController {
 
 	@RemoteAction
 	public static String sayHello() {
-		sleep(3000);
+		sleep(1000);
 		return 'Hello, World';
 	}
 
 	@RemoteAction
 	public static void sayHelloError() {
-		sleep(3000);
+		sleep(1000);
 		throw new MyException('Something bad happened!');
 	}
 
