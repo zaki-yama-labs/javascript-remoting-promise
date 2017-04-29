@@ -1,14 +1,3 @@
-// export function createRemoting(funcName) {
-  // return {
-    // execute: (funcName, ...args) => {
-
-    // return remoting.greeting((result, event) => {
-        // console.log('result:', result);
-        // console.log('event:', event);
-    // });
-  // });
-// }
-
 export default class SfRemoting {
   getRemoting() {
     // eslint-disable-next-line
