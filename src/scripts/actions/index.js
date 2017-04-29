@@ -16,20 +16,20 @@ function loadingEnd() {
 }
 
 export function sayHello() {
-  return (getState, dispatch) => {
+  return (dispatch, getState) => {
     console.log('hi');
     dispatch(loadingStart());
     new Remoting().sayHelloPromise()
       .then((result) => {
         alert(result);
         console.log(result);
-        // dispatch(loadingEnd());
+        dispatch(loadingEnd());
       });
   };
 }
 
 export function sayHelloCallback() {
-  return (getState, dispatch) => {
+  return (dispatch, getState) => {
     console.log('hi');
     dispatch(loadingStart());
     new Remoting().sayHelloCallback((result) => {
