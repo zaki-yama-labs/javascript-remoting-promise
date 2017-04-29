@@ -20,7 +20,11 @@ export default class SfRemoting {
       execute: (funcName, ...args) => {
         return new Promise((resolve, reject) => {
           this.getRemoting()[funcName](...args, (result, event) => {
-            resolve(result);
+            if (event.status) {
+              resolve(result);
+            } else {
+              reject({ message: event.message, where: event.where });
+            }
           });
         });
       },
@@ -37,5 +41,9 @@ export default class SfRemoting {
 
   sayHelloPromise() {
     return this.createRemoting().execute('sayHello');
+  }
+
+  sayHelloError() {
+    return this.createRemoting().execute('sayHelloError');
   }
 }

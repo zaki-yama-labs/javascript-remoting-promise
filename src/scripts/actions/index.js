@@ -24,6 +24,22 @@ export function sayHello() {
         alert(result);
         console.log(result);
         dispatch(loadingEnd());
+      })
+  };
+}
+
+export function sayHelloError() {
+  return (dispatch, getState) => {
+    dispatch(loadingStart());
+    new Remoting().sayHelloError()
+      .then((result) => {
+        console.log(result);
+        dispatch(loadingEnd());
+      })
+      .catch((err) => {
+        console.error(err.message, err.where);
+        dispatch(loadingEnd());
+        dispatch(raiseError(err.message, err.where));
       });
   };
 }

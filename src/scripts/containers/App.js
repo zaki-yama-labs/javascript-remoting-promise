@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import App from '../components/App';
 
-import { sayHello } from '../actions';
+import { sayHello, sayHelloError } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,6 +15,9 @@ const mapDispatchProps = (dispatch) => {
     onClick: () => {
       console.log('dispatch');
       dispatch(sayHello());
+    },
+    onClickError: () => {
+      dispatch(sayHelloError());
     },
   };
 };

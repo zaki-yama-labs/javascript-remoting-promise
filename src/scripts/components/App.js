@@ -17,6 +17,7 @@ export default class App extends React.Component {
           <Input label="Text Field #1" type="text" placeholder="Input text here" />
           <DateInput label="DateInput #1" defaultValue="2015-12-24" required />
           <Button type="brand" onClick={this.props.onClick}>Submit</Button>
+          <Button type="destructive" onClick={this.props.onClickError}>Submit(Error)</Button>
         </Form>
         {this.props.loading ? <Spinner type="brand" container size="large" /> : null}
       </div>
