@@ -36,7 +36,8 @@ gulp.task('build', ['webpack'], function() {
 gulp.task('webpack', function() {
   return gulp.src('./src/scripts/index.js')
   .pipe(webpack(require('./webpack.config.js')))
-  .pipe(gulp.dest('./build/'));
+  .on('error', handleErrors)
+  .pipe(gulp.dest('./build/'))
 });
 
 gulp.task('deploy', function() {
