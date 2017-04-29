@@ -20,7 +20,11 @@ $ npm install
 First you need to copy `.env.sample` to `.env` and input your Salesforce org credentials.  
 Then run following command.
 
-`.env.sample` をコピーして `.env` を作り、Salesforce のユーザー名とパスワードを記載してください。
+(If you deploy to the org in which namespace is defined, then add `NAMESPACE=xxx` to `.env`)
+
+`.env.sample` をコピーして `.env` を作り、Salesforce のユーザー名とパスワードを記載してください。  
+(名前空間プリフィックスが定義済みの組織にデプロイする場合は `NAMESPACE=xxx` を `.env` に追加してください)
+
 
 ```zsh
 # Build JS/CSS & Create StaticResource & Deploy
