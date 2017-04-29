@@ -11,7 +11,7 @@ public class RemoteActionController {
 	@RemoteAction
 	public static void sayHelloError() {
 		sleep(3000);
-		throw new MyException();
+		throw new MyException('Something bad happened!');
 	}
 
 	private static void sleep(Integer msec) {
