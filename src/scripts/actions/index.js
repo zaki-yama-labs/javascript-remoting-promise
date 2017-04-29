@@ -3,6 +3,9 @@ import Remoting from '../service';
 export const LOADING_START = 'LOADING_START';
 export const LOADING_END = 'LOADING_END';
 
+export const RAISE_ERROR = 'RAISE_ERROR';
+export const CLEAR_ERROR_MESSAGE = 'CLEAR_ERROR_MESSAGE';
+
 function loadingStart() {
   return {
     type: LOADING_START,
@@ -28,6 +31,13 @@ export function sayHello() {
   };
 }
 
+export function raiseError(message) {
+  return {
+    type: RAISE_ERROR,
+    payload: message,
+  };
+}
+
 export function sayHelloError() {
   return (dispatch, getState) => {
     dispatch(loadingStart());
@@ -41,6 +51,12 @@ export function sayHelloError() {
         dispatch(loadingEnd());
         dispatch(raiseError(err.message, err.where));
       });
+  };
+}
+
+export function clearErrorMessage() {
+  return {
+    type: CLEAR_ERROR_MESSAGE,
   };
 }
 

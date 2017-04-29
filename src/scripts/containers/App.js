@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 
 import App from '../components/App';
 
-import { sayHello, sayHelloError } from '../actions';
+import { sayHello, sayHelloError, clearErrorMessage } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
     loading: state.loading,
+    errorMessage: state.errorMessage,
   };
 };
 
@@ -18,6 +19,9 @@ const mapDispatchProps = (dispatch) => {
     },
     onClickError: () => {
       dispatch(sayHelloError());
+    },
+    onCloseToast: () => {
+      dispatch(clearErrorMessage());
     },
   };
 };
