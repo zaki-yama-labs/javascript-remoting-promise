@@ -1,7 +1,7 @@
 export default class SfRemoting {
   getRemoting() {
     // eslint-disable-next-line
-    return zakiyama.RemoteActionController;
+    return __NAMESPACE__RemoteActionController;
   }
 
   createRemoting() {

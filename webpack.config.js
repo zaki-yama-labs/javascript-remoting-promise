@@ -25,6 +25,15 @@ module.exports = {
         }
       },
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'string-replace-loader',
+        query:{
+          search: '__NAMESPACE__',
+          replace: process.env.NAMESPACE ? `${process.env.NAMESPACE}.` : '',
+        }
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
       }
