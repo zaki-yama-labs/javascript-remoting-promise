@@ -26,6 +26,11 @@ export function sayHello() {
         alert(result);
         dispatch(loadingEnd());
       })
+      .catch((err) => {
+        console.error(err.message, err.where);
+        dispatch(loadingEnd());
+        dispatch(raiseError(err.message, err.where));
+      });
   };
 }
 
