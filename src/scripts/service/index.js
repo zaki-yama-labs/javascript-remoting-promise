@@ -4,21 +4,17 @@ export default class SfRemoting {
     return __NAMESPACE__RemoteActionController;
   }
 
-  createRemoting() {
-    return {
-      execute: (funcName, ...args) => {
-        return new Promise((resolve, reject) => {
-          this.getRemoting()[funcName](...args, (result, event) => {
-            if (event.status) {
-              resolve(result);
-            } else {
-              console.log('Remote Action error occured:', event);
-              reject({ message: event.message, where: event.where });
-            }
-          });
-        });
-      },
-    };
+  execute(methodName, ...args) {
+    return new Promise((resolve, reject) => {
+      this.getRemoting()[methodName](...args, (result, event) => {
+        if (event.status) {
+          resolve(result);
+        } else {
+          console.log('Remote Action error occured:', event);
+          reject({ message: event.message, where: event.where });
+        }
+      });
+    });
   }
 
   sayHelloCallback(callback) {
@@ -30,10 +26,10 @@ export default class SfRemoting {
   }
 
   sayHelloPromise() {
-    return this.createRemoting().execute('sayHello');
+    return this.execute('sayHello');
   }
 
   sayHelloError() {
-    return this.createRemoting().execute('sayHelloError');
+    return this.execute('sayHelloError');
   }
 }
